@@ -42,6 +42,21 @@ python -m venv .venv
 
 ```
 
+啟動環境
+```PowerShell
+
+.\.venv\Scripts\Activate.ps1
+
+```
+
+如有阻礙
+```PowerShell
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+.\.venv\Scripts\Activate.ps1
+
+```
+
 ## 測試第一個元件
 
 4. 安裝套件，參考 [階段四：先安裝基礎套件](Reference.md#階段四先安裝基礎套件)
@@ -67,3 +82,10 @@ pip install numpy scipy opencv-python pyyaml
     python -c "from insightface.app import FaceAnalysis; FaceAnalysis(name='buffalo_l')" 
 
     ```
+
+## 測試不同功能
+1. main2.py: 建立將最正面的臉作為模板，跟其他影像作分數對比
+
+2. main3.py: 建立yaw/pitch 左右上下各2個模板，並依據yaw/pitch不同使用不同的模板
+
+3. main4.py: 只用最正臉的影像作為模板，並依據yaw/pitch不同採用不同特徵值
